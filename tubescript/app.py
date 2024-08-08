@@ -3,21 +3,7 @@ from utils import get_video_id, get_video_transcript, is_valid_youtube_url, load
 import re
 
 def main():
-    # Use custom CSS with st.markdown for better maintainability
-    st.markdown("""
-        <style>
-        .stApp {
-            background-color: #fee3e8;
-        }
-        .stTextInput > div > div > input {
-            background-color: #ffffff;
-        }
-        .stButton > button {
-            background-color: #ff4b4b;
-            color: white;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    load_css()
     st.title("TubeScript 📝")
     st.subheader("Get the transcript of any YouTube video")
     youtube_url = st.text_input("Enter a YouTube URL:")

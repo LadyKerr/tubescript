@@ -1,27 +1,23 @@
 import streamlit as st
-from utils import get_video_id, get_video_transcript, is_valid_youtube_url
+from utils import get_video_id, get_video_transcript, is_valid_youtube_url, load_css
 import re
 
 def main():
-    # Inject custom CSS
-    st.markdown(
-        """
+    # Use custom CSS with st.markdown for better maintainability
+    st.markdown("""
         <style>
         .stApp {
             background-color: #fee3e8;
         }
-        .st-br {
+        .stTextInput > div > div > input {
             background-color: #ffffff;
-            color: #000000;
         }
-        .st-bc {
-            background-color: #ffffff;
+        .stButton > button {
+            background-color: #ff4b4b;
+            color: white;
         }
         </style>
-        """,
-        unsafe_allow_html=True
-    )
-
+    """, unsafe_allow_html=True)
     st.title("TubeScript 📝")
     st.subheader("Get the transcript of any YouTube video")
     youtube_url = st.text_input("Enter a YouTube URL:")
